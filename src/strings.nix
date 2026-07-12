@@ -5,6 +5,7 @@ lib: let
     elemAt
     filter
     foldl'
+    genList
     isAttrs
     isBool
     isFloat
@@ -18,6 +19,9 @@ lib: let
     ;
 
 in {
+
+  strToChars = str:
+    genList (i: substring i 1 str) (stringLength str);
 
   toRepr = v:
     if isString v then ''"${v}"'' else
