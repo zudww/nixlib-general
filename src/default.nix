@@ -2,6 +2,7 @@ let
 
   sublibs = {
     strings = import ./strings.nix lib;
+    types = import ./types.nix lib;
   };
 
   toplevel = {
@@ -12,6 +13,10 @@ let
       toRepr
       toString
       toUpperCase
+      ;
+
+    inherit (sublibs.types)
+      typesOf
       ;
   };
 
