@@ -7,6 +7,10 @@ lib: let
 
 in {
 
+  blacklistAttrs = attrset: blacklist:
+    foldl' (acc: attr: if attrset ? ${attr} then removeAttrs acc [ attr ] else acc)
+    attrset blacklist;
+
   filterAttrs = attrset: shouldKeep:
     foldl' (
       acc: attr:
@@ -28,7 +32,7 @@ in {
     {} (attrNames attrset);
 
   whitelistAttrs = attrset: whitelist:
-    foldl' (acc: attr: acc // { ${if attrset ? ${attr} then attr else null} = attrset.${attr}; } )
+    foldl' (acc: attr: if attrset ? ${attr} then acc // { ${attr} = attrset.${attr}; } else acc )
     {} whitelist;
 
 }

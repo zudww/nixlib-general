@@ -8,6 +8,7 @@ let
 
   toplevel = {
     inherit (sublibs.attrset)
+      blacklistAttrs
       filterAttrs
       keepAttrs
       remapAttrs
