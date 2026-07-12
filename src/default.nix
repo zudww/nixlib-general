@@ -11,6 +11,7 @@ let
       filterAttrs
       keepAttrs
       remapAttrs
+      whitelistAttrs
       ;
 
     inherit (sublibs.strings)

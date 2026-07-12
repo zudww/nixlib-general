@@ -27,4 +27,8 @@ in {
     )
     {} (attrNames attrset);
 
+  whitelistAttrs = attrset: whitelist:
+    foldl' (acc: attr: acc // { ${if attrset ? ${attr} then attr else null} = attrset.${attr}; } )
+    {} whitelist;
+
 }
