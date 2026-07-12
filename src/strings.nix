@@ -62,4 +62,7 @@ in {
   in
     stripTrailingZerosLoop ((stringLength str) - 1);
 
+  uppercaseFirstChar = str:
+    lib.toUpperCase (substring 0 1 str) + substring 1 (-1) str;
+
 }
