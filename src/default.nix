@@ -9,6 +9,7 @@ let
       strToChars
       toRepr
       toString
+      toUpperCase
       ;
   };
 

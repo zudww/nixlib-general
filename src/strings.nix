@@ -13,6 +13,7 @@ lib: let
     isList
     isString
     length
+    replaceStrings
     split
     stringLength
     substring
@@ -44,6 +45,12 @@ in {
     if isFloat v then lib.strings.trimFloatStr (toString v) else
     if isNull v then "null" else
     toString v;
+
+  toUpperCase = str: let
+    lowerChars = lib.strToChars "abcdefghijklmnopqrstuvwxyz";
+    upperChars = lib.strToChars "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  in
+    replaceStrings lowerChars upperChars str;
 
   trimFloatStr = str: let
     stripTrailingZerosLoop = i: let
