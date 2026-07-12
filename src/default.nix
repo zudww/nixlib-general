@@ -1,11 +1,16 @@
 let
 
   sublibs = {
+    attrset = import ./attrset.nix lib;
     strings = import ./strings.nix lib;
     types = import ./types.nix lib;
   };
 
   toplevel = {
+    inherit (sublibs.attrset)
+      remapAttrs
+      ;
+
     inherit (sublibs.strings)
       escapeChars
       escapeRegexChars
