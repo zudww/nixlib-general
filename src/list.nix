@@ -24,4 +24,7 @@ in {
   takeElems = n: list:
     genList (i: elemAt list i) n;
 
+  dropElems = n: list:
+    genList (i: elemAt list (i + n)) ((length list) - n);
+
 }

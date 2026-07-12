@@ -40,6 +40,7 @@ let
       sliceOfElems
       tailElems
       takeElems
+      dropElems
       ;
   };
 
