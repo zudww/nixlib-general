@@ -19,17 +19,17 @@ lib: let
 
 in {
 
-  toString = v: let
-    toRepr = v:
-      if isString v then ''"${v}"'' else
-      lib.toString v;
+  toRepr = v:
+    if isString v then ''"${v}"'' else
+    lib.toString v;
 
-    evalSet = "{ ${foldl' (str: attr: str + attr + " = " + (toRepr v.${attr}) + "; " ) "" (attrNames v)}}";
+  toString = v: let
+    evalSet = "{ ${foldl' (str: attr: str + attr + " = " + (lib.toRepr v.${attr}) + "; " ) "" (attrNames v)}}";
     evalList = let
       len = length v;
       loop = i: str:
         if i == len then str else
-        loop (i + 1) (str + toRepr (elemAt v i) + " ");
+        loop (i + 1) (str + lib.toRepr (elemAt v i) + " ");
     in
       loop 0 "[ " + "]";
   in
