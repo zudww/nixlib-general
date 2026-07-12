@@ -4,7 +4,11 @@ let
     strings = import ./strings.nix lib;
   };
 
-  toplevel = {};
+  toplevel = {
+    inherit (sublibs.strings)
+      toString
+      ;
+  };
 
   lib = toplevel // sublibs;
 in
