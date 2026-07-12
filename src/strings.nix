@@ -23,6 +23,8 @@ in {
 
   escapeChars = list: replaceStrings list (map (c: "\\${c}") list);
 
+  escapeRegexChars = lib.escapeChars (lib.strToChars "\\[{()^$?*+|.");
+
   strToChars = str:
     genList (i: substring i 1 str) (stringLength str);
 
