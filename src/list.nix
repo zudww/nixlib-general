@@ -14,6 +14,20 @@ in {
   in
     genList (i: elemAt list (i + start)) (len - start);
 
+  dropElemsUntil = list: predicate: let
+    len = length list;
+    addloop = i: acc:
+      let v = elemAt list i; in
+      if i > (len - 1) then acc else
+      addloop (i + 1) (acc ++ [ v ]);
+    loop = i:
+      let v = elemAt list i; in
+      if i > (len - 1) then [] else
+      if predicate v then addloop (i + 1) [] else
+      loop (i + 1);
+  in
+    loop 0;
+
   headElem = list: elemAt list 0;
 
   initElems = list:
