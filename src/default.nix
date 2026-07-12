@@ -37,6 +37,7 @@ let
       headElem
       initElems
       lastElem
+      sliceOfElems
       tailElems
       ;
   };
