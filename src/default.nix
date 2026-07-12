@@ -6,6 +6,7 @@ let
 
   toplevel = {
     inherit (sublibs.strings)
+      escapeChars
       strToChars
       toRepr
       toString
