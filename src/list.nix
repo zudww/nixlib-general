@@ -13,6 +13,8 @@ in {
   initElems = list:
     genList (i: elemAt list i) ((length list) - 1);
 
+  lastElem = list: elemAt list ((length list) - 1);
+
   tailElems = list:
     genList (i: elemAt list (i + 1)) ((length list) - 1);
 

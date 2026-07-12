@@ -35,8 +35,9 @@ let
 
     inherit (sublibs.list)
       headElem
-      tailElems
       initElems
+      lastElem
+      tailElems
       ;
   };
 
