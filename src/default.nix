@@ -4,6 +4,7 @@ let
     attrset = import ./attrset.nix lib;
     strings = import ./strings.nix lib;
     types = import ./types.nix lib;
+    list = import ./list.nix lib;
   };
 
   toplevel = {
@@ -30,6 +31,10 @@ let
       isType
       typesOf
       withDefault
+      ;
+
+    inherit (sublibs.list)
+      headElem
       ;
   };
 
