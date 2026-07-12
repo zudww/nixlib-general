@@ -16,6 +16,7 @@ let
       ;
 
     inherit (sublibs.types)
+      isType
       typesOf
       ;
   };
