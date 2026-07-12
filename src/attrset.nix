@@ -2,7 +2,9 @@ lib: let
 
   inherit (builtins)
     attrNames
+    elemAt
     foldl'
+    length
     ;
 
 in {
@@ -10,6 +12,16 @@ in {
   blacklistAttrs = attrset: blacklist:
     foldl' (acc: attr: if attrset ? ${attr} then removeAttrs acc [ attr ] else acc)
     attrset blacklist;
+
+  removeAttrPath = attrset: path: let
+    pathLength = length path;
+    recurseInto = i: attrset': let
+      attr = elemAt path (i - 1);
+    in
+      if i == pathLength then removeAttrs attrset' [ (elemAt path (pathLength - 1)) ]
+      else attrset' // { ${attr} = recurseInto (i + 1) attrset'.${attr}; };
+  in
+    recurseInto 1 attrset;
 
   filterAttrs = attrset: shouldKeep:
     foldl' (
