@@ -15,6 +15,10 @@ in {
     )
     attrset (attrNames attrset);
 
+  keepAttrs = attrset: keep:
+    foldl' (acc: attr: acc // { ${attr} = attrset.${attr}; })
+    {} keep;
+
   remapAttrs = attrset: remapAttr:
     foldl' (
       acc: attr:

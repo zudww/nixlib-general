@@ -9,6 +9,7 @@ let
   toplevel = {
     inherit (sublibs.attrset)
       filterAttrs
+      keepAttrs
       remapAttrs
       ;
 
