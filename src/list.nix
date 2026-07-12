@@ -21,4 +21,7 @@ in {
   tailElems = list:
     genList (i: elemAt list (i + 1)) ((length list) - 1);
 
+  takeElems = n: list:
+    genList (i: elemAt list i) n;
+
 }

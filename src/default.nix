@@ -39,6 +39,7 @@ let
       lastElem
       sliceOfElems
       tailElems
+      takeElems
       ;
   };
 
