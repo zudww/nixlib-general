@@ -34,13 +34,14 @@ let
       ;
 
     inherit (sublibs.list)
+      dropElems
       headElem
       initElems
       lastElem
       sliceOfElems
       tailElems
       takeElems
-      dropElems
+      takeElemsUntil
       ;
   };
 

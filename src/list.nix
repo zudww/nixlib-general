@@ -42,4 +42,14 @@ in {
   in
     genList (elemAt list) count;
 
+  takeElemsUntil = list: predicate: let
+    len = length list;
+    loop = i: acc:
+      let v = elemAt list i; in
+      if i > (len - 1) then acc else
+      if predicate v then acc else
+      loop (i + 1) (acc ++ [ v ]);
+  in
+    loop 0 [];
+
 }
