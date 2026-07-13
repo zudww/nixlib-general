@@ -17,6 +17,7 @@ lib: let
     split
     stringLength
     substring
+    typeOf
     ;
 
 in {
@@ -24,6 +25,9 @@ in {
   escapeChars = list: replaceStrings list (map (c: "\\${c}") list);
 
   escapeRegexChars = lib.escapeChars (lib.strToChars "\\[{()^$?*+|.");
+
+  splitStr = sep: str:
+    filter (elem: typeOf elem == "string") (split (lib.escapeRegexChars sep) str);
 
   strToChars = str:
     genList (i: substring i 1 str) (stringLength str);
