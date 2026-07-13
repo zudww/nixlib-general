@@ -38,6 +38,7 @@ let
     inherit (sublibs.list)
       dropElems
       dropElemsUntil
+      forEachElem
       headElem
       initElems
       lastElem

@@ -20,6 +20,7 @@ Currently implemented:
 - `invertAttrs` — swaps name and value of an attribute (uses `builtins.toString` for values)
 
 **List**
+- `forEachElem` — remap `builtins.foldl'`
 - `headElem` — first element
 - `tailElems` — all but the first
 - `initElems` — all but the last

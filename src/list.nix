@@ -4,6 +4,7 @@ lib: let
     elemAt
     genList
     length
+    foldl'
     ;
 
 in {
@@ -27,6 +28,9 @@ in {
       loop (i + 1);
   in
     loop 0;
+
+  forEachElem = initialState: elems: forEach:
+    foldl' forEach initialState elems;
 
   headElem = list: elemAt list 0;
 
