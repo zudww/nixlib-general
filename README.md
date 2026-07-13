@@ -2,8 +2,6 @@
 
 A general-purpose utility library for Nix.
 
-> ⚠️ **Work in progress.** History will be rewritten (force-pushes, rebases, squashes) until the first stable tag exists. There is no `main` branch yet. 
-
 ## Status
 
 Currently implemented:
