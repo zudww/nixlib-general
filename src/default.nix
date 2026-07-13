@@ -11,6 +11,7 @@ let
     inherit (sublibs.attrset)
       blacklistAttrs
       filterAttrs
+      forEachAttr
       genAttrs
       invertAttrs
       keepAttrs

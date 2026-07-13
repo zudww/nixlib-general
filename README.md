@@ -11,6 +11,7 @@ Currently implemented:
 **Attrset**
 - `remapAttrs` — remap name and value
 - `genAttrs` — generates values from a list of attr names
+- `forEachAttr` — `builtins.foldl'` but loops through attribute names and value
 - `filterAttrs` — filter attrs in by predicate
 - `keepAttrs` — keep only selected attrs (errors if the attr doesn't exist)
 - `whitelistAttrs` — accept only selected attrs (doesn't error)

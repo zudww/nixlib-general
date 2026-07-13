@@ -21,6 +21,10 @@ in {
     )
     attrset (attrNames attrset);
 
+  forEachAttr = initialState: attrset: foldlFn:
+    builtins.foldl' (acc: attr: foldlFn acc attr attrset.${attr})
+    initialState (builtins.attrNames attrset);
+
   genAttrs = listOfAttrs: getVal:
     builtins.foldl' (acc: attr: acc // { ${attr} = getVal attr; })
     {} listOfAttrs;
