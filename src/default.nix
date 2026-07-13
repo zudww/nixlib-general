@@ -24,6 +24,7 @@ let
       escapeChars
       escapeRegexChars
       joinStr
+      joinStrSep
       splitLines
       splitStr
       strToChars

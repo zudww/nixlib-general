@@ -36,6 +36,7 @@ Currently implemented:
 - `splitStr` — splits a string by delimiter
 - `splitLines` — splits a string by newlines
 - `joinStr` — concatenates a list of strings
+- `joinStrSep` — concatenates a list of strings with a separator
 - `string.uppercaseFirstChar` — makes the first character uppercased
 - `trimFloatStr` — trims trailing zeros from a float rendered as a string
 - `escapeChars` — prefixes listed strings occurences with `"\\"`
