@@ -34,6 +34,7 @@ Currently implemented:
 **String**
 - `strToChars` — splits a string into a list of characters
 - `splitStr` — splits a string by delimiter
+- `splitLines` — splits a string by newlines
 - `string.uppercaseFirstChar` — makes the first character uppercased
 - `trimFloatStr` — trims trailing zeros from a float rendered as a string
 - `escapeChars` — prefixes listed strings occurences with `"\\"`

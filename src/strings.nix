@@ -26,6 +26,9 @@ in {
 
   escapeRegexChars = lib.escapeChars (lib.strToChars "\\[{()^$?*+|.");
 
+  splitLines = str:
+    filter (elem: typeOf elem == "string") (split "\n" str);
+
   splitStr = sep: str:
     filter (elem: typeOf elem == "string") (split (lib.escapeRegexChars sep) str);
 
