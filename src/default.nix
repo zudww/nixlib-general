@@ -23,6 +23,7 @@ let
     inherit (sublibs.strings)
       escapeChars
       escapeRegexChars
+      joinStr
       splitLines
       splitStr
       strToChars

@@ -2,6 +2,7 @@ lib: let
 
   inherit (builtins)
     attrNames
+    concatStringsSep
     elemAt
     filter
     foldl'
@@ -25,6 +26,9 @@ in {
   escapeChars = list: replaceStrings list (map (c: "\\${c}") list);
 
   escapeRegexChars = lib.escapeChars (lib.strToChars "\\[{()^$?*+|.");
+
+  joinStr = strings:
+    concatStringsSep "" strings;
 
   splitLines = str:
     filter (elem: typeOf elem == "string") (split "\n" str);
