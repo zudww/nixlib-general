@@ -21,6 +21,10 @@ in {
     )
     attrset (attrNames attrset);
 
+  genAttrs = listOfAttrs: getVal:
+    builtins.foldl' (acc: attr: acc // { ${attr} = getVal attr; })
+    {} listOfAttrs;
+
   invertAttrs = attrset:
     foldl' (acc: attr: acc // { ${toString attrset.${attr}} = attr; })
     {} (attrNames attrset);
