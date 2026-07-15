@@ -9,9 +9,7 @@ lib: let
 
 in {
 
-  blacklistAttrs = attrset: blacklist:
-    foldl' (acc: attr: if attrset ? ${attr} then removeAttrs acc [ attr ] else acc)
-    attrset blacklist;
+  blacklistAttrs = removeAttrs;
 
   filterAttrs = attrset: shouldKeep:
     foldl' (
