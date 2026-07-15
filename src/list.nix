@@ -17,15 +17,12 @@ in {
 
   dropElemsUntil = list: predicate: let
     len = length list;
-    addloop = i: acc:
-      let v = elemAt list i; in
-      if i > (len - 1) then acc else
-      addloop (i + 1) (acc ++ [ v ]);
+    mkList = startI: genList (i: elemAt list (startI + i)) (len - startI);
     loop = i:
       let v = elemAt list i; in
-      if i > (len - 1) then [] else
-      if predicate v then addloop (i + 1) [] else
-      loop (i + 1);
+      if i > (len - 1) then []
+      else if predicate v then mkList i
+      else loop (i + 1);
   in
     loop 0;
 
@@ -62,12 +59,13 @@ in {
 
   takeElemsUntil = list: predicate: let
     len = length list;
-    loop = i: acc:
+    mkList = endI: genList (i: elemAt list i) endI;
+    loop = i:
       let v = elemAt list i; in
-      if i > (len - 1) then acc else
-      if predicate v then acc else
-      loop (i + 1) (acc ++ [ v ]);
+      if i > (len - 1) then list else
+      if predicate v then mkList i else
+      loop (i + 1);
   in
-    loop 0 [];
+    loop 0;
 
 }
