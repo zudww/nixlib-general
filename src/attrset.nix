@@ -3,6 +3,7 @@ lib: let
   inherit (builtins)
     attrNames
     elemAt
+    filter
     foldl'
     length
     ;
@@ -12,12 +13,7 @@ in {
   blacklistAttrs = removeAttrs;
 
   filterAttrs = attrset: shouldKeep:
-    foldl' (
-      acc: attr:
-        if shouldKeep attr attrset.${attr} then acc
-        else removeAttrs acc [ attr ]
-    )
-    attrset (attrNames attrset);
+    removeAttrs attrset (filter (attr: !(shouldKeep attr attrset.${attr})) (attrNames attrset));
 
   forEachAttr = initialState: attrset: foldlFn:
     builtins.foldl' (acc: attr: foldlFn acc attr attrset.${attr})
