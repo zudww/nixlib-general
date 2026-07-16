@@ -41,13 +41,13 @@ in {
       value = attrset.${name};
     }) (length keep));
 
-  remapAttrs = attrset: remapAttr:
-    foldl' (
-      acc: attr:
-        let attr' = remapAttr attr attrset.${attr}; in
-        acc // { ${attr'.name} = attr'.value; }
-    )
-    {} (attrNames attrset);
+  remapAttrs = attrset: remapAttr: let
+    names = attrNames attrset;
+  in
+    listToAttrs (genList (i:
+      let name = elemAt names i; in
+      remapAttr name (attrset.${name})
+    ) (length names));
 
   removeAttrPath = attrset: path: let
     pathLength = length path;
