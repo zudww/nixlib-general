@@ -45,7 +45,9 @@ in {
     if attrset ? ${pathHead} then attrset // { ${pathHead} = lib.removeAttrPath attrset.${pathHead} pathTail; }
     else attrset;
 
-  whitelistAttrs = attrset: whitelist:
-    removeAttrs attrset (filter (v: !(elem v whitelist)) (attrNames attrset));
+  whitelistAttrs = attrset: whitelist: listToAttrs (map
+    (name: { name = name; value = attrset.${name}; })
+    (filter (name: attrset ? ${name}) whitelist)
+  );
 
 }
