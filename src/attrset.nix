@@ -25,12 +25,14 @@ in {
   genAttrs = listOfAttrs: getVal:
     listToAttrs (map (name: { name = name; value = getVal name; }) listOfAttrs);
 
+  # priority is last to first (first overrides last) alphabetically
   invertAttrs = attrset:
     listToAttrs (map (name: { name = toString attrset.${name}; value = name; }) (attrNames attrset));
 
   keepAttrs = attrset: keep:
     listToAttrs (map (name: { name = name; value = attrset.${name}; }) keep);
 
+  # priority is last to first (first overrides last) alphabetically
   remapAttrs = attrset: remapAttr:
     listToAttrs (map (name: remapAttr name attrset.${name}) (attrNames attrset));
 
