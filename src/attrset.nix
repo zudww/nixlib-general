@@ -36,8 +36,10 @@ in {
     }) (length names));
 
   keepAttrs = attrset: keep:
-    foldl' (acc: attr: acc // { ${attr} = attrset.${attr}; })
-    {} keep;
+    listToAttrs (genList (i: rec {
+      name = elemAt keep i;
+      value = attrset.${name};
+    }) (length keep));
 
   remapAttrs = attrset: remapAttr:
     foldl' (
