@@ -5,7 +5,9 @@ lib: let
     elemAt
     filter
     foldl'
+    genList
     length
+    listToAttrs
     ;
 
 in {
@@ -20,8 +22,10 @@ in {
     initialState (builtins.attrNames attrset);
 
   genAttrs = listOfAttrs: getVal:
-    builtins.foldl' (acc: attr: acc // { ${attr} = getVal attr; })
-    {} listOfAttrs;
+    listToAttrs (genList (i: rec {
+      name = elemAt listOfAttrs i;
+      value = getVal name;
+    }) (length listOfAttrs));
 
   invertAttrs = attrset:
     foldl' (acc: attr: acc // { ${toString attrset.${attr}} = attr; })
