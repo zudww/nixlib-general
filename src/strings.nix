@@ -12,6 +12,7 @@ lib: let
     isFunction
     isList
     isString
+    match
     replaceStrings
     split
     stringLength
@@ -22,6 +23,23 @@ lib: let
 in {
 
   escapeChars = list: replaceStrings list (map (c: "\\${c}") list);
+
+  escapeNixIdentifiers = s: let
+    nixKeywords = {
+      "assert" = true;
+      "else" = true;
+      "if" = true;
+      "in" = true;
+      "inherit" = true;
+      "let" = true;
+      "or" = true;
+      "rec" = true;
+      "then" = true;
+      "with" = true;
+    };
+  in
+    if (match "[a-zA-Z_][a-zA-Z0-9_'-]*" s != null) && !(nixKeywords ? ${s}) then s else
+    lib.escapeChars [ "$" ] (builtins.toJSON s);
 
   escapeRegexChars = lib.escapeChars (lib.strToChars "\\[{()^$?*+|.");
 

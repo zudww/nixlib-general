@@ -22,6 +22,7 @@ let
 
     inherit (sublibs.strings)
       escapeChars
+      escapeNixIdentifiers
       escapeRegexChars
       joinStr
       joinStrSep
