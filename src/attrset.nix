@@ -6,8 +6,11 @@ lib: let
     filter
     foldl'
     genList
+    head
+    isAttrs
     length
     listToAttrs
+    tail
     ;
 
 in {
@@ -18,8 +21,8 @@ in {
     removeAttrs attrset (filter (attr: !(shouldKeep attr attrset.${attr})) (attrNames attrset));
 
   forEachAttr = initialState: attrset: foldlFn:
-    builtins.foldl' (acc: attr: foldlFn acc attr attrset.${attr})
-    initialState (builtins.attrNames attrset);
+    foldl' (acc: attr: foldlFn acc attr attrset.${attr})
+    initialState (attrNames attrset);
 
   genAttrs = listOfAttrs: getVal:
     listToAttrs (genList (i: rec {
@@ -50,14 +53,13 @@ in {
     ) (length names));
 
   removeAttrPath = attrset: path: let
-    pathLength = length path;
-    recurseInto = i: attrset': let
-      attr = elemAt path (i - 1);
-    in
-      if i == pathLength then removeAttrs attrset' [ (elemAt path (pathLength - 1)) ]
-      else attrset' // { ${attr} = recurseInto (i + 1) attrset'.${attr}; };
+    pathHead = head path;
+    pathTail = tail path;
   in
-    recurseInto 1 attrset;
+    if path == [] || !(isAttrs attrset) then attrset else
+    if pathTail == [] then removeAttrs attrset [ pathHead ] else
+    if attrset ? ${pathHead} then attrset // { ${pathHead} = lib.removeAttrPath attrset.${pathHead} pathTail; }
+    else attrset;
 
   whitelistAttrs = attrset: whitelist:
     foldl' (acc: attr: if attrset ? ${attr} then acc // { ${attr} = attrset.${attr}; } else acc )
