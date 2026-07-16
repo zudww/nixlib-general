@@ -3,13 +3,10 @@ lib: let
   inherit (builtins)
     attrNames
     elem
-    elemAt
     filter
     foldl'
-    genList
     head
     isAttrs
-    length
     listToAttrs
     tail
     ;
@@ -26,32 +23,16 @@ in {
     initialState (attrNames attrset);
 
   genAttrs = listOfAttrs: getVal:
-    listToAttrs (genList (i:
-      let name = elemAt listOfAttrs i; in
-      { name = name; value = getVal name; }
-    ) (length listOfAttrs));
+    listToAttrs (map (name: { name = name; value = getVal name; }) listOfAttrs);
 
-  invertAttrs = attrset: let
-    names = attrNames attrset;
-  in
-    listToAttrs (genList (i:
-      let name = elemAt names i; in
-      { name = toString attrset.${name}; value = name; }
-    ) (length names));
+  invertAttrs = attrset:
+    listToAttrs (map (name: { name = toString attrset.${name}; value = name; }) (attrNames attrset));
 
   keepAttrs = attrset: keep:
-    listToAttrs (genList (i:
-      let name = elemAt keep i; in
-      { name = name; value = attrset.${name}; }
-    ) (length keep));
+    listToAttrs (map (name: { name = name; value = attrset.${name}; }) keep);
 
-  remapAttrs = attrset: remapAttr: let
-    names = attrNames attrset;
-  in
-    listToAttrs (genList (i:
-      let name = elemAt names i; in
-      remapAttr name (attrset.${name})
-    ) (length names));
+  remapAttrs = attrset: remapAttr:
+    listToAttrs (map (name: remapAttr name attrset.${name}) (attrNames attrset));
 
   removeAttrPath = attrset: path: let
     pathHead = head path;
