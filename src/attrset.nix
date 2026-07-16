@@ -27,9 +27,13 @@ in {
       value = getVal name;
     }) (length listOfAttrs));
 
-  invertAttrs = attrset:
-    foldl' (acc: attr: acc // { ${toString attrset.${attr}} = attr; })
-    {} (attrNames attrset);
+  invertAttrs = attrset: let
+    names = attrNames attrset;
+  in
+    listToAttrs (genList (i: rec {
+      name = toString attrset.${value};
+      value = elemAt names i;
+    }) (length names));
 
   keepAttrs = attrset: keep:
     foldl' (acc: attr: acc // { ${attr} = attrset.${attr}; })
