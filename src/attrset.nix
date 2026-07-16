@@ -26,24 +26,24 @@ in {
     initialState (attrNames attrset);
 
   genAttrs = listOfAttrs: getVal:
-    listToAttrs (genList (i: rec {
-      name = elemAt listOfAttrs i;
-      value = getVal name;
-    }) (length listOfAttrs));
+    listToAttrs (genList (i:
+      let name = elemAt listOfAttrs i; in
+      { name = name; value = getVal name; }
+    ) (length listOfAttrs));
 
   invertAttrs = attrset: let
     names = attrNames attrset;
   in
-    listToAttrs (genList (i: rec {
-      name = toString attrset.${value};
-      value = elemAt names i;
-    }) (length names));
+    listToAttrs (genList (i:
+      let name = elemAt names i; in
+      { name = toString attrset.${name}; value = name; }
+    ) (length names));
 
   keepAttrs = attrset: keep:
-    listToAttrs (genList (i: rec {
-      name = elemAt keep i;
-      value = attrset.${name};
-    }) (length keep));
+    listToAttrs (genList (i:
+      let name = elemAt keep i; in
+      { name = name; value = attrset.${name}; }
+    ) (length keep));
 
   remapAttrs = attrset: remapAttr: let
     names = attrNames attrset;
