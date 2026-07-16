@@ -48,7 +48,7 @@ in {
 
   toString = v: let
     evalSet = "{ ${concatStringsSep "" (map (attr: "${attr} = ${lib.toRepr v.${attr}}; ") (attrNames v))}}";
-    evalList = "[ ${concatStringsSep " " (map (elem: lib.toRepr elem) v)} ]";
+    evalList = "[ ${concatStringsSep " " (map (elem: lib.toRepr elem) v)}]";
   in
     if isAttrs v then evalSet else
     if isList v then evalList else
