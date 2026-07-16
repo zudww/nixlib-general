@@ -47,14 +47,8 @@ in {
     lib.toString v;
 
   toString = v: let
-    evalSet = "{ ${foldl' (str: attr: str + attr + " = " + (lib.toRepr v.${attr}) + "; " ) "" (attrNames v)}}";
-    evalList = let
-      len = length v;
-      loop = i: str:
-        if i == len then str else
-        loop (i + 1) (str + lib.toRepr (elemAt v i) + " ");
-    in
-      loop 0 "[ " + "]";
+    evalSet = "{ ${concatStringsSep "" (map (attr: "${attr} = ${lib.toRepr v.${attr}}; ") (attrNames v))}}";
+    evalList = "[ ${concatStringsSep " " (map (elem: lib.toRepr elem) v)} ]";
   in
     if isAttrs v then evalSet else
     if isList v then evalList else
