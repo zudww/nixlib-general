@@ -2,7 +2,6 @@ lib: let
 
   inherit (builtins)
     attrNames
-    elem
     filter
     foldl'
     head

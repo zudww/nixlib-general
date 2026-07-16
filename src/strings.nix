@@ -5,7 +5,6 @@ lib: let
     concatStringsSep
     elemAt
     filter
-    foldl'
     genList
     isAttrs
     isBool
@@ -13,7 +12,6 @@ lib: let
     isFunction
     isList
     isString
-    length
     replaceStrings
     split
     stringLength
