@@ -2,6 +2,7 @@ lib: let
 
   inherit (builtins)
     attrNames
+    elem
     elemAt
     filter
     foldl'
@@ -62,7 +63,6 @@ in {
     else attrset;
 
   whitelistAttrs = attrset: whitelist:
-    foldl' (acc: attr: if attrset ? ${attr} then acc // { ${attr} = attrset.${attr}; } else acc )
-    {} whitelist;
+    removeAttrs attrset (filter (v: !(elem v whitelist)) (attrNames attrset));
 
 }
