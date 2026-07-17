@@ -18,6 +18,7 @@ let
       remapAttrs
       removeAttrPath
       updateAttrs
+      updateAttrsRecursive
       whitelistAttrs
       ;
 

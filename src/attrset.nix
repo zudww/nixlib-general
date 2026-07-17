@@ -8,6 +8,7 @@ lib: let
     isAttrs
     listToAttrs
     tail
+    typeOf
     ;
 
 in {
@@ -45,6 +46,23 @@ in {
     else attrset;
 
   updateAttrs = a: b: a // b;
+
+  updateAttrsRecursive = a: b: let
+    updatedAttrs = listToAttrs (map
+      (name: {
+        name = name;
+        value = let
+          aAttr = a.${name};
+          bAttr = b.${name};
+        in
+          if (typeOf bAttr == "set") && a ? ${name} && (typeOf aAttr == "set")
+          then lib.updateAttrsRecursive aAttr bAttr
+          else bAttr;
+      })
+      (attrNames b)
+    );
+  in
+    a // updatedAttrs;
 
   whitelistAttrs = attrset: whitelist: listToAttrs (map
     (name: { name = name; value = attrset.${name}; })
