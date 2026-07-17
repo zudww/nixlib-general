@@ -2,6 +2,7 @@ let
 
   sublibs = {
     attrset = import ./attrset.nix lib;
+    filesystem = import ./filesystem.nix lib;
     strings = import ./strings.nix lib;
     types = import ./types.nix lib;
     list = import ./list.nix lib;
@@ -20,6 +21,10 @@ let
       updateAttrs
       updateAttrsRecursive
       whitelistAttrs
+      ;
+
+    inherit (sublibs.filesystem)
+      listDirs
       ;
 
     inherit (sublibs.strings)
