@@ -17,6 +17,7 @@ let
       keepAttrs
       remapAttrs
       removeAttrPath
+      updateAttrs
       whitelistAttrs
       ;
 
