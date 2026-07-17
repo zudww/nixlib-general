@@ -7,6 +7,14 @@ lib: let
 
 in {
 
+  listFiles = dir:
+    let contents = readDir dir; in
+    filter (v: v != null) (
+      map
+      (file: if contents.${file} != "regular" then null else dir + "/${file}")
+      (attrNames contents)
+    );
+
   listDirs = dir:
     let contents = readDir dir; in
     filter (v: v != null) (

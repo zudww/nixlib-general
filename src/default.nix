@@ -24,6 +24,7 @@ let
       ;
 
     inherit (sublibs.filesystem)
+      listFiles
       listDirs
       ;
 
