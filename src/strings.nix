@@ -46,6 +46,8 @@ in {
 
   headChar = substring 0 1;
 
+  lastChar = str: substring (stringLength str - 1) 1 str;
+
   lengthOfStr = stringLength;
 
   matchStrRegex = regex: string: (match regex string) != null;

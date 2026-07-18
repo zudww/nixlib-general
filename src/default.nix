@@ -45,7 +45,7 @@ _: {
         escapeNixIdentifiers
         escapeRegexChars
         headChar
-        tailStr
+        lastChar
         lengthOfStr
         matchStrRegex
         matchStrRegexCGs
@@ -55,6 +55,7 @@ _: {
         splitStr
         sliceOfChars
         strToChars
+        tailStr
         toRepr
         toString
         toUpperCase
