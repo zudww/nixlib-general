@@ -9,6 +9,10 @@ lib: let
 
 in {
 
+  inherit (builtins)
+    listToAttrs
+    ;
+
   dropElems = n: list: let
     len = length list;
     start = if n < 0 then 0 else if n > len then len else n;
