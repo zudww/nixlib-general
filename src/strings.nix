@@ -43,6 +43,8 @@ in {
 
   escapeRegexChars = lib.escapeChars (lib.strToChars "\\[{()^$?*+|.");
 
+  replaceStrings = from: to: replaceStrings [from] [to];
+
   splitLines = str:
     filter (elem: typeOf elem == "string") (split "\n" str);
 
