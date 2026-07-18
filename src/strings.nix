@@ -77,6 +77,9 @@ in {
 
   sliceOfChars = substring;
 
+  startsWithStr = f: str:
+    builtins.match "^${lib.escapeRegexChars f}.*" str != null;
+
   strToChars = str:
     genList (i: substring i 1 str) (stringLength str);
 

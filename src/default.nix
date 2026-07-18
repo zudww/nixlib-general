@@ -57,6 +57,7 @@ _: {
         splitLines
         splitStr
         sliceOfChars
+        startsWithStr
         strToChars
         tailStr
         toRepr
