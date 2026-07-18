@@ -45,6 +45,8 @@ in {
 
   matchStrRegex = regex: string: (match regex string) != null;
 
+  matchStrRegexCGs = match;
+
   replaceStrings = from: to: replaceStrings [from] [to];
 
   replaceMultipleStrings = replaceStrings;
