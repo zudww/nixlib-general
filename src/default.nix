@@ -42,6 +42,7 @@ _: {
         isSymlink
         listFiles
         listDirs
+        pathExists
         ;
 
       inherit (strings)

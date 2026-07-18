@@ -11,6 +11,10 @@ lib: let
 
 in {
 
+  inherit (builtins)
+    pathExists
+    ;
+
   getFileExt = path:
     let search = match "^..*\\.\(.*\)$" (baseNameOf path); in
     if search == null then "" else elemAt search 0;
