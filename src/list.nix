@@ -29,6 +29,8 @@ in {
   forEachElem = initialState: elems: forEach:
     foldl' forEach initialState elems;
 
+  genList = maxIndex: getIndex: genList getIndex maxIndex;
+
   headElem = list: elemAt list 0;
 
   initElems = list:

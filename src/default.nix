@@ -61,6 +61,7 @@ _: {
         dropElems
         dropElemsUntil
         forEachElem
+        genList
         headElem
         initElems
         lastElem
