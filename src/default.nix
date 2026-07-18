@@ -40,6 +40,7 @@ _: {
         ;
 
       inherit (strings)
+        charAt
         escapeChars
         escapeNixIdentifiers
         escapeRegexChars

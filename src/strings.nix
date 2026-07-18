@@ -21,6 +21,8 @@ lib: let
 
 in {
 
+  charAt = startI: substring startI 1;
+
   escapeChars = list: replaceStrings list (map (c: "\\${c}") list);
 
   escapeNixIdentifiers = s: let
