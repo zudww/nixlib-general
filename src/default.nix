@@ -84,6 +84,7 @@ _: {
         ;
 
       inherit (list)
+        allElems
         dropElems
         dropElemsUntil
         elemAt

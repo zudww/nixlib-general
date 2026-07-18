@@ -1,6 +1,7 @@
 lib: let
 
   inherit (builtins)
+    all
     concatStringsSep
     elemAt
     filter
@@ -16,6 +17,8 @@ in {
   inherit (builtins)
     listToAttrs
     ;
+
+  allElems = all;
 
   dropElems = n: list: let
     len = length list;
