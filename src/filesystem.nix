@@ -17,6 +17,8 @@ in {
 
   getFileType = readFileType;
 
+  isDir = path: readFileType path == "directory";
+
   isFile = path: readFileType path == "regular";
 
   listFiles = dir:

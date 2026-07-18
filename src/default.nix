@@ -37,6 +37,7 @@ _: {
       inherit (filesystem)
         getFileExt
         getFileType
+        isDir
         isFile
         listFiles
         listDirs
