@@ -43,6 +43,7 @@ _: {
         escapeChars
         escapeNixIdentifiers
         escapeRegexChars
+        lengthOfStr
         matchStrRegex
         matchStrRegexCGs
         replaceStrings

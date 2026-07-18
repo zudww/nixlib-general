@@ -42,6 +42,8 @@ in {
 
   escapeRegexChars = lib.escapeChars (lib.strToChars "\\[{()^$?*+|.");
 
+  lengthOfStr = stringLength;
+
   matchStrRegex = regex: string: (match regex string) != null;
 
   matchStrRegexCGs = match;
