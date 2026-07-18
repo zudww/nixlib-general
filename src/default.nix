@@ -41,6 +41,7 @@ _: {
 
       inherit (strings)
         charAt
+        containsStr
         escapeChars
         escapeNixIdentifiers
         escapeRegexChars

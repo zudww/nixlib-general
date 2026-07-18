@@ -23,6 +23,9 @@ in {
 
   charAt = startI: substring startI 1;
 
+  containsStr = f: str:
+    builtins.match ".*${lib.escapeRegexChars f}.*" str != null;
+
   escapeChars = list: replaceStrings list (map (c: "\\${c}") list);
 
   escapeNixIdentifiers = s: let
