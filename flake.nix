@@ -1,7 +1,4 @@
 {
   description = "actually general-purpose nix library";
-
-  outputs = _: {
-    lib = import ./src;
-  };
+  outputs = _: import ./src _;
 }

@@ -1,67 +1,75 @@
-let
+_: {
 
-  sublibs = {
+  lib = let
+
     attrset = import ./attrset.nix lib;
     filesystem = import ./filesystem.nix lib;
     strings = import ./strings.nix lib;
     types = import ./types.nix lib;
     list = import ./list.nix lib;
-  };
 
-  toplevel = {
-    inherit (sublibs.attrset)
-      blacklistAttrs
-      filterAttrs
-      forEachAttr
-      genAttrs
-      invertAttrs
-      keepAttrs
-      remapAttrs
-      removeAttrPath
-      updateAttrs
-      updateAttrsRecursive
-      whitelistAttrs
-      ;
+    lib = {
 
-    inherit (sublibs.filesystem)
-      listFiles
-      listDirs
-      ;
+      inherit
+        attrset
+        filesystem
+        strings
+        types
+        list
+        ;
 
-    inherit (sublibs.strings)
-      escapeChars
-      escapeNixIdentifiers
-      escapeRegexChars
-      joinStr
-      joinStrSep
-      splitLines
-      splitStr
-      strToChars
-      toRepr
-      toString
-      toUpperCase
-      ;
+      inherit (attrset)
+        blacklistAttrs
+        filterAttrs
+        forEachAttr
+        genAttrs
+        invertAttrs
+        keepAttrs
+        remapAttrs
+        removeAttrPath
+        updateAttrs
+        updateAttrsRecursive
+        whitelistAttrs
+        ;
 
-    inherit (sublibs.types)
-      isType
-      typesOf
-      withDefault
-      ;
+      inherit (filesystem)
+        listFiles
+        listDirs
+        ;
 
-    inherit (sublibs.list)
-      dropElems
-      dropElemsUntil
-      forEachElem
-      headElem
-      initElems
-      lastElem
-      sliceOfElems
-      tailElems
-      takeElems
-      takeElemsUntil
-      ;
-  };
+      inherit (strings)
+        escapeChars
+        escapeNixIdentifiers
+        escapeRegexChars
+        joinStr
+        joinStrSep
+        splitLines
+        splitStr
+        strToChars
+        toRepr
+        toString
+        toUpperCase
+        ;
 
-  lib = toplevel // sublibs;
-in
-  lib
+      inherit (types)
+        isType
+        typesOf
+        withDefault
+        ;
+
+      inherit (list)
+        dropElems
+        dropElemsUntil
+        forEachElem
+        headElem
+        initElems
+        lastElem
+        sliceOfElems
+        tailElems
+        takeElems
+        takeElemsUntil
+        ;
+    };
+  in
+    lib;
+}
