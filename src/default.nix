@@ -49,6 +49,7 @@ _: {
         lengthOfStr
         matchStrRegex
         matchStrRegexCGs
+        repeatStr
         replaceStrings
         replaceMultipleStrings
         splitLines

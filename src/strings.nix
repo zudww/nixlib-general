@@ -54,6 +54,9 @@ in {
 
   matchStrRegexCGs = match;
 
+  repeatStr = str: count:
+    concatStringsSep "" (genList (_: str) count);
+
   replaceStrings = from: to: replaceStrings [from] [to];
 
   replaceMultipleStrings = replaceStrings;
