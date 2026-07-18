@@ -51,6 +51,7 @@ _: {
         replaceMultipleStrings
         splitLines
         splitStr
+        sliceOfChars
         strToChars
         toRepr
         toString
