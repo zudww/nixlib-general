@@ -26,6 +26,9 @@ in {
   containsStr = f: str:
     builtins.match ".*${lib.escapeRegexChars f}.*" str != null;
 
+  endsWithStr = f: str:
+    builtins.match ".*${lib.escapeRegexChars f}$" str != null;
+
   escapeChars = list: replaceStrings list (map (c: "\\${c}") list);
 
   escapeNixIdentifiers = s: let
