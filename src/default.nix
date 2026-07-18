@@ -45,6 +45,7 @@ _: {
         escapeNixIdentifiers
         escapeRegexChars
         headChar
+        tailStr
         lengthOfStr
         matchStrRegex
         matchStrRegexCGs

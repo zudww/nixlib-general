@@ -69,6 +69,8 @@ in {
   strToChars = str:
     genList (i: substring i 1 str) (stringLength str);
 
+  tailStr = substring 1 (-1);
+
   toRepr = v:
     if isString v then ''"${v}"'' else
     lib.toString v;
