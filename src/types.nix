@@ -1,6 +1,8 @@
 lib: let
 
   inherit (builtins)
+    isAttrs
+    isFunction
     mapAttrs
     typeOf
     ;
@@ -9,7 +11,18 @@ in {
 
   inherit (builtins)
     typeOf
+    isBool
+    isFloat
+    isInt
+    isList
+    isNull
+    isPath
+    isString
     ;
+
+  isAttrset = isAttrs;
+
+  isLambda = isFunction;
 
   isType = type: val: (typeOf val) == type;
 

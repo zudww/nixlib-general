@@ -54,6 +54,15 @@ _: {
         ;
 
       inherit (types)
+        isAttrset
+        isBool
+        isFloat
+        isInt
+        isLambda
+        isList
+        isNull
+        isPath
+        isString
         isType
         typeOf
         typesOf
