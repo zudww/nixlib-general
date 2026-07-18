@@ -60,6 +60,7 @@ _: {
       inherit (list)
         dropElems
         dropElemsUntil
+        elemAt
         forEachElem
         genList
         headElem

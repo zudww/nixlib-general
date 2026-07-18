@@ -26,6 +26,8 @@ in {
   in
     loop 0;
 
+  elemAt = index: list: elemAt list index;
+
   forEachElem = initialState: elems: forEach:
     foldl' forEach initialState elems;
 
