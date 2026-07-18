@@ -45,6 +45,8 @@ in {
 
   replaceStrings = from: to: replaceStrings [from] [to];
 
+  replaceMultipleStrings = replaceStrings;
+
   splitLines = str:
     filter (elem: typeOf elem == "string") (split "\n" str);
 

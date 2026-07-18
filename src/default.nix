@@ -44,6 +44,7 @@ _: {
         escapeNixIdentifiers
         escapeRegexChars
         replaceStrings
+        replaceMultipleStrings
         splitLines
         splitStr
         strToChars
