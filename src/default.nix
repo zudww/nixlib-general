@@ -55,6 +55,7 @@ _: {
 
       inherit (types)
         isType
+        typeOf
         typesOf
         withDefault
         ;
