@@ -55,6 +55,7 @@ _: {
 
       inherit (types)
         isAttrset
+        isAttrsetType
         isBool
         isDerivation
         isFloat

@@ -22,6 +22,8 @@ in {
 
   isAttrset = isAttrs;
 
+  isAttrsetType = type: attrset: attrset ? type && attrset.type == type;
+
   isDerivation = drv: drv ? drvPath;
 
   isLambda = isFunction;
