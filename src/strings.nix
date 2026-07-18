@@ -12,6 +12,7 @@ lib: let
     isFunction
     isList
     isString
+    length
     match
     replaceStrings
     split
@@ -55,7 +56,8 @@ in {
     filter (elem: typeOf elem == "string") (split "\n" str);
 
   splitStr = sep: str:
-    filter (elem: typeOf elem == "string") (split (lib.escapeRegexChars sep) str);
+    let splitStr = split (lib.escapeRegexChars sep) str; in
+    genList (i: elemAt splitStr (i * 2)) ((length splitStr / 2) + 1);
 
   strToChars = str:
     genList (i: substring i 1 str) (stringLength str);
@@ -88,7 +90,7 @@ in {
     in
       if char == "0" then stripTrailingZerosLoop (i - 1) else
       if char != "." then substring 0 (i + 1) str else
-      elemAt (filter isString (split "\\." str)) 0;
+      elemAt (split "\\." str) 0;
   in
     stripTrailingZerosLoop ((stringLength str) - 1);
 
