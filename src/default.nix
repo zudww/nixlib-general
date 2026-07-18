@@ -88,7 +88,6 @@ _: {
         forEachElem
         genList
         headElem
-        initElems
         joinStrings
         joinStringsSep
         lastElem

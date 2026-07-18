@@ -45,11 +45,6 @@ in {
 
   headElem = head;
 
-  initElems = list:
-    let len = length list; in
-    if len == 0 then [] else
-    genList (elemAt list) (len - 1);
-
   joinStrings = strings:
     concatStringsSep "" strings;
 
