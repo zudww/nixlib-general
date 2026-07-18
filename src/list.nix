@@ -2,6 +2,7 @@ lib: let
 
   inherit (builtins)
     elemAt
+    filter
     genList
     length
     foldl'
@@ -31,6 +32,8 @@ in {
     loop 0;
 
   elemAt = index: list: elemAt list index;
+
+  filterList = list: filterFn: filter filterFn list;
 
   forEachElem = initialState: elems: forEach:
     foldl' forEach initialState elems;

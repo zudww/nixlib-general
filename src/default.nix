@@ -75,6 +75,7 @@ _: {
         dropElems
         dropElemsUntil
         elemAt
+        filterList
         forEachElem
         genList
         headElem
