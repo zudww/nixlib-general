@@ -56,6 +56,7 @@ _: {
       inherit (types)
         isAttrset
         isBool
+        isDerivation
         isFloat
         isInt
         isLambda

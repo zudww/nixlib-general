@@ -22,6 +22,8 @@ in {
 
   isAttrset = isAttrs;
 
+  isDerivation = drv: drv ? drvPath;
+
   isLambda = isFunction;
 
   isType = type: val: (typeOf val) == type;
