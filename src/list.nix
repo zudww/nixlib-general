@@ -3,10 +3,11 @@ lib: let
   inherit (builtins)
     elemAt
     filter
+    foldl'
     genList
     head
     length
-    foldl'
+    tail
     ;
 
 in {
@@ -60,10 +61,7 @@ in {
   in
     genList (i: elemAt list (i + start)) count;
 
-  tailElems = list:
-    let len = length list; in
-    if len == 0 then [] else
-    genList (i: elemAt list (i + 1)) (len - 1);
+  tailElems = tail;
 
   takeElems = n: list: let
     len = length list;
