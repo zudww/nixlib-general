@@ -3,7 +3,9 @@ lib: let
   inherit (builtins)
     attrNames
     filter
-    readDir;
+    readDir
+    readFileType
+    ;
 
 in {
 
@@ -22,5 +24,7 @@ in {
       (file: if contents.${file} != "directory" then null else dir + "/${file}")
       (attrNames contents)
     );
+
+  getFileType = readFileType;
 
 }
