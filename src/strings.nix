@@ -4,7 +4,6 @@ lib: let
     attrNames
     concatStringsSep
     elemAt
-    filter
     genList
     isAttrs
     isBool
@@ -18,7 +17,6 @@ lib: let
     split
     stringLength
     substring
-    typeOf
     ;
 
 in {
@@ -57,6 +55,8 @@ in {
   splitStr = sep: str:
     let splitStr = split (lib.escapeRegexChars sep) str; in
     genList (i: elemAt splitStr (i * 2)) ((length splitStr / 2) + 1);
+
+  splitStrRegexCGs = split;
 
   strToChars = str:
     genList (i: substring i 1 str) (stringLength str);
