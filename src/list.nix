@@ -60,13 +60,15 @@ in {
 
   lengthOfList = length;
 
-  sliceOfElems = i1: i2: list: let
+  sliceOfElems = start: end: list: let
     len = length list;
-    start = if i1 < 0 then 0 else if i1 > len then len else i1;
-    stop = if i2 >= len then len - 1 else i2;
-    count = if stop < start then 0 else stop - start + 1;
+    end' =
+      let lms = len - start; in
+      if end > lms || end < 0 then lms else
+      end;
   in
-    genList (i: elemAt list (i + start)) count;
+    if start > (len - 1) then [] else
+    genList (i: elemAt list (i + start)) end';
 
   tailElems = tail;
 

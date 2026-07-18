@@ -80,6 +80,7 @@ _: {
         dropElems
         dropElemsUntil
         elemAt
+        elemsAt
         filterList
         forEachElem
         genList
