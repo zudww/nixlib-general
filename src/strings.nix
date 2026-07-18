@@ -43,6 +43,8 @@ in {
 
   escapeRegexChars = lib.escapeChars (lib.strToChars "\\[{()^$?*+|.");
 
+  matchStrRegex = regex: string: (match regex string) != null;
+
   replaceStrings = from: to: replaceStrings [from] [to];
 
   replaceMultipleStrings = replaceStrings;

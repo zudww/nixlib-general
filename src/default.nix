@@ -43,6 +43,7 @@ _: {
         escapeChars
         escapeNixIdentifiers
         escapeRegexChars
+        matchStrRegex
         replaceStrings
         replaceMultipleStrings
         splitLines
