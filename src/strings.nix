@@ -43,12 +43,6 @@ in {
 
   escapeRegexChars = lib.escapeChars (lib.strToChars "\\[{()^$?*+|.");
 
-  joinStr = strings:
-    concatStringsSep "" strings;
-
-  joinStrSep = sep: strings:
-    concatStringsSep sep strings;
-
   splitLines = str:
     filter (elem: typeOf elem == "string") (split "\n" str);
 

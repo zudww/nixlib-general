@@ -1,6 +1,7 @@
 lib: let
 
   inherit (builtins)
+    concatStringsSep
     elemAt
     filter
     foldl'
@@ -48,6 +49,12 @@ in {
     let len = length list; in
     if len == 0 then [] else
     genList (elemAt list) (len - 1);
+
+  joinStrings = strings:
+    concatStringsSep "" strings;
+
+  joinStringsSep = sep: strings:
+    concatStringsSep sep strings;
 
   lastElem = list: elemAt list ((length list) - 1);
 

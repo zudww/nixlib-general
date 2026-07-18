@@ -43,8 +43,6 @@ _: {
         escapeChars
         escapeNixIdentifiers
         escapeRegexChars
-        joinStr
-        joinStrSep
         splitLines
         splitStr
         strToChars
@@ -80,6 +78,8 @@ _: {
         genList
         headElem
         initElems
+        joinStrings
+        joinStringsSep
         lastElem
         lengthOfList
         listToAttrs
