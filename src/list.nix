@@ -4,6 +4,7 @@ lib: let
     elemAt
     filter
     genList
+    head
     length
     foldl'
     ;
@@ -40,7 +41,7 @@ in {
 
   genList = maxIndex: getIndex: genList getIndex maxIndex;
 
-  headElem = list: elemAt list 0;
+  headElem = head;
 
   initElems = list:
     let len = length list; in
