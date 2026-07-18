@@ -44,6 +44,8 @@ in {
 
   escapeRegexChars = lib.escapeChars (lib.strToChars "\\[{()^$?*+|.");
 
+  headChar = substring 0 1;
+
   lengthOfStr = stringLength;
 
   matchStrRegex = regex: string: (match regex string) != null;
