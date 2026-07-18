@@ -35,10 +35,11 @@ _: {
         ;
 
       inherit (filesystem)
-        listFiles
-        listDirs
         getFileExt
         getFileType
+        isFile
+        listFiles
+        listDirs
         ;
 
       inherit (strings)
