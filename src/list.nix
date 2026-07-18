@@ -4,6 +4,7 @@ lib: let
     all
     any
     concatStringsSep
+    elem
     elemAt
     filter
     foldl'
@@ -22,6 +23,8 @@ in {
   allElems = all;
 
   anyElems = any;
+
+  containsElem = elem;
 
   dropElems = n: list: let
     len = length list;

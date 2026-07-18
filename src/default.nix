@@ -86,6 +86,7 @@ _: {
       inherit (list)
         allElems
         anyElems
+        containsElem
         dropElems
         dropElemsUntil
         elemAt
