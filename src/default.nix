@@ -19,6 +19,7 @@ _: {
         ;
 
       inherit (attrset)
+        attrNames
         blacklistAttrs
         filterAttrs
         forEachAttr

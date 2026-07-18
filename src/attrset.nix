@@ -13,6 +13,10 @@ lib: let
 
 in {
 
+  inherit (builtins)
+    attrNames
+    ;
+
   blacklistAttrs = removeAttrs;
 
   filterAttrs = attrset: shouldKeep:
