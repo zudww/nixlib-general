@@ -46,6 +46,8 @@ in {
 
   lastElem = list: elemAt list ((length list) - 1);
 
+  lengthOfList = length;
+
   sliceOfElems = i1: i2: list: let
     len = length list;
     start = if i1 < 0 then 0 else if i1 > len then len else i1;

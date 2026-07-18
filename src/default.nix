@@ -66,6 +66,7 @@ _: {
         headElem
         initElems
         lastElem
+        lengthOfList
         listToAttrs
         sliceOfElems
         tailElems
