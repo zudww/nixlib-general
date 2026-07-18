@@ -21,6 +21,8 @@ in {
 
   isFile = path: readFileType path == "regular";
 
+  isSymlink = path: readFileType path == "symlink";
+
   listFiles = dir:
     let contents = readDir dir; in
     filter (v: v != null) (

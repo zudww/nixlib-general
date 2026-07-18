@@ -39,6 +39,7 @@ _: {
         getFileType
         isDir
         isFile
+        isSymlink
         listFiles
         listDirs
         ;
