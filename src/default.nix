@@ -20,6 +20,7 @@ _: {
 
       inherit (attrset)
         attrNames
+        attrValues
         blacklistAttrs
         filterAttrs
         forEachAttr

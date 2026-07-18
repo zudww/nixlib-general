@@ -15,6 +15,7 @@ in {
 
   inherit (builtins)
     attrNames
+    attrValues
     ;
 
   blacklistAttrs = removeAttrs;
