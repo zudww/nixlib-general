@@ -52,8 +52,7 @@ in {
 
   replaceMultipleStrings = replaceStrings;
 
-  splitLines = str:
-    filter (elem: typeOf elem == "string") (split "\n" str);
+  splitLines = lib.splitStr "\n";
 
   splitStr = sep: str:
     let splitStr = split (lib.escapeRegexChars sep) str; in
