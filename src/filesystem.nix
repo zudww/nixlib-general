@@ -2,6 +2,7 @@ lib: let
 
   inherit (builtins)
     attrNames
+    concatMap
     elemAt
     filter
     match
@@ -34,6 +35,19 @@ in {
       (file: if contents.${file} != "regular" then null else dir + "/${file}")
       (attrNames contents)
     );
+
+  listFilesRecursive = dir: let
+    contents = readDir dir;
+  in
+    concatMap (name: let
+      path = dir + "/${name}";
+      type = contents.${name};
+    in
+      if type == "regular" then [ path ] else
+      if type == "directory" then lib.listFilesRecursive path else
+      []
+    )
+    (builtins.attrNames contents);
 
   listDirs = dir:
     let contents = readDir dir; in

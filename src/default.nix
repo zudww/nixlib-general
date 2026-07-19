@@ -41,6 +41,7 @@ _: {
         isFile
         isSymlink
         listFiles
+        listFilesRecursive
         listDirs
         pathExists
         ;
