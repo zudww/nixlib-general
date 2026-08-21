@@ -1,8 +1,11 @@
 lib: let
 
   inherit (builtins)
+    any
+    attrNames
     isAttrs
     isFunction
+    isString
     mapAttrs
     typeOf
     ;
@@ -26,7 +29,12 @@ in {
 
   isAttrsetType = type: attrset: attrset ? type && attrset.type == type;
 
-  isDerivation = drv: drv ? drvPath;
+  isDerivation = drv: let
+    drvPath = drv.drvPath or drv;
+    ctx = builtins.getContext drvPath;
+  in
+    isString drvPath
+    && any (n: lib.endsWithStr ".drv" n) (attrNames ctx);
 
   isLambda = isFunction;
 
