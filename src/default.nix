@@ -93,6 +93,7 @@ _: {
       inherit (list)
         allElems
         anyElems
+        attrsToList
         containsElem
         dropElems
         dropElemsUntil

@@ -3,6 +3,7 @@ lib: let
   inherit (builtins)
     all
     any
+    attrNames
     concatStringsSep
     elem
     elemAt
@@ -23,6 +24,9 @@ in {
   allElems = all;
 
   anyElems = any;
+
+  attrsToList = attrs: getElem:
+    map (name: getElem name (attrs.${name})) (attrNames attrs);
 
   containsElem = elem;
 
