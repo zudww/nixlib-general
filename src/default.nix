@@ -73,11 +73,13 @@ _: {
         ;
 
       inherit (types)
+        isAttrs
         isAttrset
         isAttrsetType
         isBool
         isDerivation
         isFloat
+        isFunction
         isInt
         isLambda
         isList

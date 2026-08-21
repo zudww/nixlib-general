@@ -11,8 +11,10 @@ in {
 
   inherit (builtins)
     typeOf
+    isAttrs
     isBool
     isFloat
+    isFunction
     isInt
     isList
     isNull
