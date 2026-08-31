@@ -13,15 +13,16 @@ Currently implemented:
 - `forEachAttr` — `builtins.foldl'` but loops through attribute names and value
 - `filterAttrs` — filter attrs in by predicate
 - `keepAttrs` — keep only selected attrs (errors if the attr doesn't exist)
-- `whitelistAttrs` — accept only selected attrs (doesn't error)
+- `whitelistAttrs` — accept only selected attrs
 - `blacklistAttrs` — opposite of `lib.whitelistAttrs`
-- `removeAttrPath` — delete a deep path
-- `invertAttrs` — swaps name and value of an attribute (uses `builtins.toString` for values)
+- `removeAttrPath` — delete a deep attribute using a path
+- `invertAttrs` — swaps name and value of an attribute (uses `builtins.toString` for values to convert to names)
 - `updateAttrs` — shallow merge of two attrsets (`a // b`)
-- `updateAttrsRecursive` — recursively merges two attrsets, going deeper wherever both sides have a set at the same key
+- `updateAttrsRecursive` — recursively merges two attrsets, going deeper wherever both sides have a set (lists not recursed)
 
 **List**
-- `forEachElem` — remap `builtins.foldl'`
+- `attrsToList` — turns an attrset to a list using a function for each element that takes in the name and value of the attrset.
+- `forEachElem` — alias of `builtins.foldl'`
 - `headElem` — first element
 - `tailElems` — all but the first
 - `lastElem` — last element
@@ -29,46 +30,46 @@ Currently implemented:
 - `takeElems` — takes the first N elements
 - `dropElems` — removes the first N elements
 - `takeElemsUntil` — keeps elements until predicate is true
-- `dropElemsUntil` — drops elements until predicate is true
+- `dropElemsUntil` — removes elements until predicate is true
 - `filterList` — filter a list by predicate
 - `joinStrings` — concatenates a list of strings
 - `joinStringsSep` — concatenates a list of strings with a separator
 
 **String**
-- `strToChars` — splits a string into a list of characters
+- `containsStr` / `startsWithStr` / `endsWithStr` — substring, prefix, and suffix checks
+- `escapeChars` — prefixes occurrences of any of the listed strings with "\\"
+- `escapeNixIdentifiers` — escapes any occurrences of Nix identifiers (mostly used for codegen)
+- `escapeRegexChars` — escapes regex characters
+- `matchStrRegex` — whether a string matches a regex
+- `matchStrRegexCGs` — whether a string matches a regex, returning capture groups. alias of `builtins.match`
+- `repeatStr` — repeats a string N times
+- `replaceStrings` — replaces occurrences of a string with another string
+- `replaceMultipleStrings` — alias of `builtins.replaceStrings`
+- `strToChars` — turns a string into a list of characters
 - `splitStr` — splits a string by delimiter
 - `splitLines` — splits a string by newlines
+- `trimFloatStr` — trims trailing zeros from a string representation of a float
+- `toString` — turns any nix type into a string
+- `toRepr` — turns any nix type into a string representation (`lib.toString` but just puts double quotes in strings)
+- `toUpperCase` — turns every lowercased alphabet character into uppercase
 - `uppercaseFirstChar` — makes the first character uppercased
-- `trimFloatStr` — trims trailing zeros from a float rendered as a string
-- `escapeChars` — prefixes listed strings occurences with `"\\"`
-- `escapeRegexChars` — escapes regex characters
-- `escapeNixIdentifiers` — escapes a string so it's safe to use as a Nix identifier/attr name
-- `toString` — turns any nix type into a string representation
-- `toRepr` — turns any nix type into a string type representation
-- `toUpperCase` — turns every alphabet character into uppercase
-- `repeatStr` — repeats a string N times
-- `replaceStrings` — replaces one string with another (single-pair version of `builtins.replaceStrings`)
-- `replaceMultipleStrings` — alias for `builtins.replaceStrings` (list-of-pairs version)
-- `containsStr` / `startsWithStr` / `endsWithStr` — substring, prefix, and suffix checks
-- `matchStrRegex` — whether a string matches a regex, as a bool
-- `matchStrRegexCGs` — alias for `builtins.match` (returns capture groups)
 
 **Types**
-- `typesOf` — transforms each attribute as a string of the type of the attribute had
-- `isType` — checks if a value matches a given type (string)
-- `withDefault` — returns a fallback if a value doesn't match an expected type
-- `isAttrset` — alias for `builtins.isAttrs`
-- `isAttrsetType` — checks whether an attrset has a `type` field matching the given type
-- `isDerivation` — checks whether a value looks like a derivation (`drv ? drvPath`)
-- `isLambda` — alias for `builtins.isFunction`
+- `typeOf` / `isAttrs` / `isBool` / `isFloat` / `isFunction` / `isInt` / `isList` / `isNull` / `isPath` / `isString` — aliases from `builtins`
+- `isAttrset` — alias of `builtins.isAttrs`
+- `isDerivation` — checks whether a value looks like a derivation (should not be used as an absolute check)
+- `isLambda` — alias of `builtins.isFunction`
+- `isType` — checks if a value matches a given type (given type is in a string form)
+- `typesOf` — remaps each attribute as a string of the type the attribute had
+- `withDefault` — returns a fallback value if a value doesn't match an expected type
 
 **Filesystem**
-- `getFileExt` — extracts a path's file extension
-- `getFileType` — alias for `builtins.readFileType`
 - `isDir` / `isFile` / `isSymlink` — checks a path's file type
+- `getFileExt` — extracts a path's file extension
+- `getFileType` — alias of `builtins.readFileType`
+- `listDirs` — lists subdirectories of a directory
 - `listFiles` — lists regular files in a directory
 - `listFilesRecursive` — recursively lists regular files under a directory
-- `listDirs` — lists subdirectories of a directory
 
 ## License
 

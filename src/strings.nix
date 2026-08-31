@@ -17,6 +17,7 @@ lib: let
     split
     stringLength
     substring
+    toJSON
     ;
 
 in {
@@ -24,10 +25,10 @@ in {
   charAt = startI: substring startI 1;
 
   containsStr = f: str:
-    builtins.match ".*${lib.escapeRegexChars f}.*" str != null;
+    match ".*${lib.escapeRegexChars f}.*" str != null;
 
   endsWithStr = f: str:
-    builtins.match ".*${lib.escapeRegexChars f}$" str != null;
+    match ".*${lib.escapeRegexChars f}$" str != null;
 
   escapeChars = list: replaceStrings list (map (c: "\\${c}") list);
 
@@ -46,7 +47,7 @@ in {
     };
   in
     if (match "[a-zA-Z_][a-zA-Z0-9_'-]*" s != null) && !(nixKeywords ? ${s}) then s else
-    lib.escapeChars [ "$" ] (builtins.toJSON s);
+    lib.escapeChars [ "$" ] (toJSON s);
 
   escapeRegexChars = lib.escapeChars (lib.strToChars "\\[{()^$?*+|.");
 
@@ -78,7 +79,7 @@ in {
   sliceOfChars = substring;
 
   startsWithStr = f: str:
-    builtins.match "^${lib.escapeRegexChars f}.*" str != null;
+    match "^${lib.escapeRegexChars f}.*" str != null;
 
   strToChars = str:
     genList (i: substring i 1 str) (stringLength str);

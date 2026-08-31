@@ -55,7 +55,8 @@ in {
   updateAttrs = a: b: a // b;
 
   updateAttrsRecursive = a: b: let
-    updatedAttrs = listToAttrs (map
+    updatedAttrs = listToAttrs (
+      map
       (name: {
         name = name;
         value = let
@@ -71,7 +72,8 @@ in {
   in
     a // updatedAttrs;
 
-  whitelistAttrs = attrset: whitelist: listToAttrs (map
+  whitelistAttrs = attrset: whitelist: listToAttrs (
+    map
     (name: { name = name; value = attrset.${name}; })
     (filter (name: attrset ? ${name}) whitelist)
   );

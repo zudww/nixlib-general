@@ -3,6 +3,7 @@ lib: let
   inherit (builtins)
     any
     attrNames
+    getContext
     isAttrs
     isFunction
     isString
@@ -13,7 +14,6 @@ lib: let
 in {
 
   inherit (builtins)
-    typeOf
     isAttrs
     isBool
     isFloat
@@ -23,6 +23,7 @@ in {
     isNull
     isPath
     isString
+    typeOf
     ;
 
   isAttrset = isAttrs;
@@ -31,7 +32,7 @@ in {
 
   isDerivation = drv: let
     drvPath = drv.drvPath or drv;
-    ctx = builtins.getContext drvPath;
+    ctx = getContext drvPath;
   in
     isString drvPath
     && any (n: lib.endsWithStr ".drv" n) (attrNames ctx);
