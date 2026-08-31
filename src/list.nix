@@ -4,7 +4,6 @@ lib: let
     all
     any
     attrNames
-    concatStringsSep
     elem
     elemAt
     filter
@@ -57,12 +56,6 @@ in {
   genList = maxIndex: getIndex: genList getIndex maxIndex;
 
   headElem = head;
-
-  joinStrings = strings:
-    concatStringsSep "" strings;
-
-  joinStringsSep = sep: strings:
-    concatStringsSep sep strings;
 
   lastElem = list: elemAt list ((length list) - 1);
 

@@ -32,8 +32,6 @@ Currently implemented:
 - `takeElemsUntil` — keeps elements until predicate is true
 - `dropElemsUntil` — removes elements until predicate is true
 - `filterList` — filter a list by predicate
-- `joinStrings` — concatenates a list of strings
-- `joinStringsSep` — concatenates a list of strings with a separator
 
 **String**
 - `containsStr` / `startsWithStr` / `endsWithStr` — substring, prefix, and suffix checks
@@ -42,6 +40,9 @@ Currently implemented:
 - `escapeRegexChars` — escapes regex characters
 - `matchStrRegex` — whether a string matches a regex
 - `matchStrRegexCGs` — whether a string matches a regex, returning capture groups. alias of `builtins.match`
+- `headChar` — gets the first character in a string
+- `joinStrings` — concatenates a list of strings
+- `joinStringsSep` — concatenates a list of strings with a separator
 - `repeatStr` — repeats a string N times
 - `replaceStrings` — replaces occurrences of a string with another string
 - `replaceMultipleStrings` — alias of `builtins.replaceStrings`

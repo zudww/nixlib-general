@@ -54,6 +54,8 @@ _: {
         escapeNixIdentifiers
         escapeRegexChars
         headChar
+        joinStrings
+        joinStringsSep
         lastChar
         lengthOfStr
         matchStrRegex
@@ -104,8 +106,6 @@ _: {
         forEachElem
         genList
         headElem
-        joinStrings
-        joinStringsSep
         lastElem
         lengthOfList
         listToAttrs
