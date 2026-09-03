@@ -53,11 +53,9 @@ in {
 
   headChar = substring 0 1;
 
-  joinStrings = strings:
-    concatStringsSep "" strings;
+  joinStrings = concatStringsSep "";
 
-  joinStringsSep = sep: strings:
-    concatStringsSep sep strings;
+  joinStringsSep = concatStringsSep;
 
   lastChar = str: substring (stringLength str - 1) 1 str;
 

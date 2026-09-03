@@ -32,6 +32,7 @@ Currently implemented:
 - `takeElemsUntil` — keeps elements until predicate is true
 - `dropElemsUntil` — removes elements until predicate is true
 - `keepElemsIf` — filter a list by predicate
+- `joinLists` — concatenates a list of lists
 - `remapElems` — remaps each value in a list.
 - `lengthOfList` — returns how much elements are in a list.
 - `elemAt` — returns the element at a specific index (starting from 0) in a list.

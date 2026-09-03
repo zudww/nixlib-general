@@ -5,6 +5,7 @@ let
     all
     any
     attrNames
+    concatLists
     elem
     elemAt
     filter
@@ -55,6 +56,8 @@ in
   genList = maxIndex: getIndex: genList getIndex maxIndex;
 
   headElem = head;
+
+  joinLists = concatLists;
 
   keepElemsIf = filter;
 

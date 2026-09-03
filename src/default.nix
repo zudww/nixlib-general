@@ -105,6 +105,7 @@ _: {
         elemAt
         genList
         headElem
+        joinLists
         keepElemsIf
         lastElem
         lengthOfList
