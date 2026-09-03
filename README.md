@@ -31,7 +31,7 @@ Currently implemented:
 - `dropElems` — removes the first N elements
 - `takeElemsUntil` — keeps elements until predicate is true
 - `dropElemsUntil` — removes elements until predicate is true
-- `filterList` — filter a list by predicate
+- `keepElemsIf` — filter a list by predicate
 - `remapElems` — remaps each value in a list.
 
 **String**

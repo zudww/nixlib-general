@@ -52,11 +52,11 @@ in
 
   elemAt = index: list: elemAt list index;
 
-  filterList = list: filterFn: filter filterFn list;
-
   genList = maxIndex: getIndex: genList getIndex maxIndex;
 
   headElem = head;
+
+  keepElemsIf = filter;
 
   lastElem = list: elemAt list ((length list) - 1);
 

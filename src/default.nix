@@ -103,9 +103,9 @@ _: {
         dropElems
         dropElemsUntil
         elemAt
-        filterList
         genList
         headElem
+        keepElemsIf
         lastElem
         lengthOfList
         listToAttrs
