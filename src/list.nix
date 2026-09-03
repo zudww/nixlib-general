@@ -61,6 +61,8 @@ in {
 
   lengthOfList = length;
 
+  remapElems = list: remapFn: map remapFn list;
+
   sliceOfElems = start: end: list: let
     len = length list;
     end' =

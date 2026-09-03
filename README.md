@@ -32,6 +32,7 @@ Currently implemented:
 - `takeElemsUntil` — keeps elements until predicate is true
 - `dropElemsUntil` — removes elements until predicate is true
 - `filterList` — filter a list by predicate
+- `remapElems` — remaps each value in a list.
 
 **String**
 - `containsStr` / `startsWithStr` / `endsWithStr` — substring, prefix, and suffix checks

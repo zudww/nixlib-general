@@ -109,6 +109,7 @@ _: {
         lastElem
         lengthOfList
         listToAttrs
+        remapElems
         sliceOfElems
         tailElems
         takeElems
