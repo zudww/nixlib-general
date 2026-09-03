@@ -95,6 +95,7 @@ _: {
         ;
 
       inherit (list)
+        accForEachElem
         allElems
         anyElems
         attrsToList
@@ -103,7 +104,6 @@ _: {
         dropElemsUntil
         elemAt
         filterList
-        forEachElem
         genList
         headElem
         lastElem

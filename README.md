@@ -21,8 +21,8 @@ Currently implemented:
 - `updateAttrsRecursive` — recursively merges two attrsets, going deeper wherever both sides have a set (lists not recursed)
 
 **List**
+- `accForEachElem` — process a list from left to right, combining its elements into a single result. (foldl)
 - `attrsToList` — turns an attrset to a list using a function for each element that takes in the name and value of the attrset.
-- `forEachElem` — alias of `builtins.foldl'`
 - `headElem` — first element
 - `tailElems` — all but the first
 - `lastElem` — last element

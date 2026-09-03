@@ -1,4 +1,5 @@
-lib: let
+lib:
+let
 
   inherit (builtins)
     all
@@ -14,7 +15,10 @@ lib: let
     tail
     ;
 
-in {
+in
+{
+  accForEachElem = elems: initialState: forEachFn:
+    foldl' forEachFn initialState elems;
 
   inherit (builtins)
     listToAttrs
@@ -49,9 +53,6 @@ in {
   elemAt = index: list: elemAt list index;
 
   filterList = list: filterFn: filter filterFn list;
-
-  forEachElem = initialState: elems: forEach:
-    foldl' forEach initialState elems;
 
   genList = maxIndex: getIndex: genList getIndex maxIndex;
 
