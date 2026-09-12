@@ -13,6 +13,7 @@ let
     genList
     head
     length
+    sort
     tail
     ;
 
@@ -83,6 +84,10 @@ in
       elemAt list (i - 1)
     )
     ((length list) + 1);
+
+  insertAfterElemsAt = indices: list: elem:
+    (foldl' (acc: i: { acc = lib.insertAfterElemAt (i + acc.offs) acc.acc elem; offs = (acc.offs + 1); })
+    { acc = list; offs = 0; } (sort (x: y: x < y) indices)).acc;
 
   joinLists = concatLists;
 
