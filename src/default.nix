@@ -107,6 +107,7 @@ _: {
         headElem
         indexOfMatch
         indicesOfMatch
+        insertAfterElemAt
         joinLists
         keepElemsIf
         lastElem

@@ -37,6 +37,8 @@ Currently implemented:
 - `lengthOfList` — returns how much elements are in a list.
 - `elemAt` — returns the element at a specific index (starting from 0) in a list.
 
+- `insertAfterElemAt`: inserts an element at the index after another index.
+
 - `indicesOfMatch` — returns a list of matched elems, returning an empty list if it none matched.
 - `indexOfMatch` — returns the first matched elem, returning `null` if it none matched.
 
