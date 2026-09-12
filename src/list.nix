@@ -89,6 +89,14 @@ in
     (foldl' (acc: i: { acc = lib.insertAfterElemAt (i + acc.offs) acc.acc elem; offs = (acc.offs + 1); })
     { acc = list; offs = 0; } (sort (x: y: x < y) indices)).acc;
 
+  insertBeforeElemAt = index: list: elem:
+    genList (i:
+      if i < index then elemAt list i else
+      if i == index then elem else
+      elemAt list (i - 1)
+    )
+    ((length list) + 1);
+
   joinLists = concatLists;
 
   keepElemsIf = filter;

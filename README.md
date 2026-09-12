@@ -39,6 +39,7 @@ Currently implemented:
 
 - `insertAfterElemAt`: inserts an element at the index after another index.
 - `insertAfterElemsAt`: insert elements after the provided indices.
+- `insertBeforeElemAt`: inserts an element at the index before another index.
 
 - `indicesOfMatch` — returns a list of matched elems, returning an empty list if it none matched.
 - `indexOfMatch` — returns the first matched elem, returning `null` if it none matched.
