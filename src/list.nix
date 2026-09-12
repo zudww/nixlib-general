@@ -57,6 +57,16 @@ in
 
   headElem = head;
 
+  indexOfMatch = list: matcher: let
+    l = length list;
+    iterator = i:
+      let v = elemAt list i; in
+      if i == l then null else
+      if matcher v then i else
+      iterator (i + 1);
+  in
+    iterator 0;
+
   joinLists = concatLists;
 
   keepElemsIf = filter;

@@ -37,6 +37,8 @@ Currently implemented:
 - `lengthOfList` — returns how much elements are in a list.
 - `elemAt` — returns the element at a specific index (starting from 0) in a list.
 
+- `indexOfMatch` — returns the first matched elem, returning `null` if it none matched.
+
 **String**
 - `containsStr` / `startsWithStr` / `endsWithStr` — substring, prefix, and suffix checks
 - `escapeChars` — prefixes occurrences of any of the listed strings with "\\"
