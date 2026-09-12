@@ -57,6 +57,15 @@ in
 
   headElem = head;
 
+  indicesOfMatch = list: matcher: let
+    l = length list;
+    iterator = i: acc:
+      let v = elemAt list i; in
+      if i == l then acc else
+      iterator (i + 1) (if matcher v then acc ++ [ i ] else acc);
+  in
+    iterator 0 [];
+
   indexOfMatch = list: matcher: let
     l = length list;
     iterator = i:

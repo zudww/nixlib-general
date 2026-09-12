@@ -106,6 +106,7 @@ _: {
         genList
         headElem
         indexOfMatch
+        indicesOfMatch
         joinLists
         keepElemsIf
         lastElem
