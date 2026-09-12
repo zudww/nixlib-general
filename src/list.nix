@@ -111,6 +111,10 @@ in
 
   remapElems = list: remapFn: map remapFn list;
 
+  replaceElemAt = index: list: value:
+    genList (i: if i == index then value else elemAt list i)
+    (length list);
+
   sliceOfElems = start: end: list: let
     len = length list;
     end' =
