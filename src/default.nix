@@ -110,6 +110,7 @@ _: {
         insertAfterElemAt
         insertAfterElemsAt
         insertBeforeElemAt
+        insertBeforeElemsAt
         joinLists
         keepElemsIf
         lastElem

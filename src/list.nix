@@ -97,6 +97,10 @@ in
     )
     ((length list) + 1);
 
+  insertBeforeElemsAt = indices: list: elem:
+    (foldl' (acc: i: { acc = lib.insertBeforeElemAt (i + acc.offs) acc.acc elem; offs = (acc.offs + 1); })
+    { acc = list; offs = 0; } (sort (x: y: x < y) indices)).acc;
+
   joinLists = concatLists;
 
   keepElemsIf = filter;
