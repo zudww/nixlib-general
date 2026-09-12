@@ -115,6 +115,10 @@ in
     genList (i: elemAt list (if i >= index then i + 1 else i))
     ((length list) - 1);
 
+  removeElemsAt = indices: list:
+    (foldl' (acc: i: { acc = lib.removeElemAt (i + acc.offs) acc.acc; offs = (acc.offs - 1); })
+    { acc = list; offs = 0; } (sort (x: y: x < y) indices)).acc;
+
   replaceElemAt = index: list: value:
     genList (i: if i == index then value else elemAt list i)
     (length list);

@@ -118,6 +118,7 @@ _: {
         listToAttrs
         remapElems
         removeElemAt
+        removeElemsAt
         replaceElemAt
         replaceElemsAt
         sliceOfElems
