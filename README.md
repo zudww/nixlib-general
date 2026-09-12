@@ -42,7 +42,8 @@ Currently implemented:
 - `insertBeforeElemAt` — inserts an element at the index before another index.
 - `insertBeforeElemsAt` — insert elements before the provided indices.
 
-- `replaceElemAt` — replaces/overwrites an element at an index
+- `replaceElemAt` — overwrites an element at an index
+- `replaceElemsAt` — overwrites elements at the given indices
 
 - `indicesOfMatch` — returns a list of matched elems, returning an empty list if it none matched.
 - `indexOfMatch` — returns the first matched elem, returning `null` if it none matched.

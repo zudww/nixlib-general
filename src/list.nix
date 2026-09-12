@@ -115,6 +115,10 @@ in
     genList (i: if i == index then value else elemAt list i)
     (length list);
 
+  replaceElemsAt = indices: list: value:
+    genList (i: if elem i indices then value else elemAt list i)
+    (length list);
+
   sliceOfElems = start: end: list: let
     len = length list;
     end' =
