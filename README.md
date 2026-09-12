@@ -36,18 +36,14 @@ Currently implemented:
 - `remapElems` — remaps each value in a list.
 - `lengthOfList` — returns how much elements are in a list.
 - `elemAt` — returns the element at a specific index (starting from 0) in a list.
-
 - `insertAfterElemAt` — inserts an element at the index after another index.
 - `insertAfterElemsAt` — insert elements after the provided indices.
 - `insertBeforeElemAt` — inserts an element at the index before another index.
 - `insertBeforeElemsAt` — insert elements before the provided indices.
-
 - `replaceElemAt` — overwrites an element at an index.
 - `replaceElemsAt` — overwrites elements at the given indices.
-
 - `removeElemAt` — removes an element at an index.
 - `removeElemsAt` — removes elements at the given indices.
-
 - `indicesOfMatch` — returns a list of matched elems, returning an empty list if it none matched.
 - `indexOfMatch` — returns the first matched elem, returning `null` if it none matched.
 
