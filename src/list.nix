@@ -111,6 +111,10 @@ in
 
   remapElems = list: remapFn: map remapFn list;
 
+  removeElemAt = index: list:
+    genList (i: elemAt list (if i >= index then i + 1 else i))
+    ((length list) - 1);
+
   replaceElemAt = index: list: value:
     genList (i: if i == index then value else elemAt list i)
     (length list);
